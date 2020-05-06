@@ -33,7 +33,6 @@
     "webpack-cli": "^3.3.10"
   },
   "scripts": {
-    "prepare": "webpack",
     "watch": "webpack --watch --progress --debug",
     "watch-test": "karma start --no-single-run",
     "test": "karma start"
