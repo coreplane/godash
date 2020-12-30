@@ -64,16 +64,16 @@ export function followupKo(board, coordinate, color) {
         return null;
     }
 
-    const postMoveBoard = addMove(board, coordinate, color);
-    const capturedStones = difference(board, postMoveBoard);
+    const temp = addMoveAndReturnKilled(board, coordinate, color);
+    const postMoveBoard = temp[0];
+    const capturedStones = temp[1];
 
     if (capturedStones.size === 0 || capturedStones.size > 1) {
         return null;
     }
 
-    const capturedMove = capturedStones.first();
-    const capturedCoordinate = capturedMove.get(0);
-    const capturedColor = capturedMove.get(1);
+    const capturedCoordinate = capturedStones.first();
+    const capturedColor = oppositeColor(color);
 
     // The situation is ko if playing the next move captures only the move that
     // was played here.
