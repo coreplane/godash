@@ -172,7 +172,7 @@ export function removeStones(board, coordinates) {
     );
 }
 
-export function addMove(board, coordinate, color) {
+export function addMoveAndReturnKilled(board, coordinate, color) {
     if (!isLegalMove(board, coordinate, color)) {
         throw 'Not a valid position';
     }
@@ -186,7 +186,11 @@ export function addMove(board, coordinate, color) {
         Set()
     );
 
-    return removeStones(board, killed).setIn(['moves', coordinate], color);
+    return [removeStones(board, killed).setIn(['moves', coordinate], color), killed];
+}
+
+export function addMove(board, coordinate, color) {
+    return addMoveAndReturnKilled(board, coordinate, color)[0];
 }
 
 export function placeStone(board, coordinate, color, force = false) {

@@ -51,6 +51,8 @@ export declare function removeStones(board: Board, coordinates: Coordinate[]): B
 
 export declare function addMove(board: Board, coordinate: Coordinate, color: Color): Board;
 
+export declare function addMoveAndReturnKilled(board: Board, coordinate: Coordinate, color: Color): [Board, Set<Coordinate>];
+
 export declare function placeStone(board: Board, coordinate: Coordinate, color: Color, force?: boolean): Board;
 
 export declare function placeStones(board: Board, coordinates: Coordinate[], color: Color, force?: boolean): Board;
