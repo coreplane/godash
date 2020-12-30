@@ -4,9 +4,13 @@ module.exports = {
         './src/index'
     ],
     output: {
+        globalObject: 'this',
         library: 'godash',
         libraryTarget: 'umd',
         filename: 'godash.js'
+    },
+    externals: {
+        'lodash': 'lodash',
     },
     module: {
         rules: [
