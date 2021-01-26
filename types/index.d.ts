@@ -9,6 +9,7 @@ export {
     TENGEN_19,
     addMove,
     addMoveAndReturnKilled,
+    addMoveAndReturnKilledNoCheck,
     constructBoard,
     difference,
     followupKo,

@@ -181,6 +181,10 @@ export function addMoveAndReturnKilled(board, coordinate, color) {
         throw 'There is already a stone there';
     }
 
+    return addMoveAndReturnKilledNoCheck(board, coordinate, color);
+}
+
+export function addMoveAndReturnKilledNoCheck(board, coordinate, color) {
     const killed = matchingAdjacentCoordinates(board, coordinate, oppositeColor(color)).reduce(
         (acc, coord) => acc.union(libertyCount(board, coord) === 1 ? group(board, coord) : Set()),
         Set()
